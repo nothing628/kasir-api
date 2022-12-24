@@ -1,0 +1,29 @@
+GET http://localhost:3333/products HTTP/1.1
+
+###
+
+GET http://localhost:3333/products/4 HTTP/1.1
+
+###
+
+POST http://localhost:3333/products HTTP/1.1
+content-type: application/json
+
+{
+  "productName": "Indomie Soto",
+  "productCategory": "Makanan",
+  "price": 3500
+}
+
+###
+
+PUT http://localhost:3333/products/4 HTTP/1.1
+content-type: application/json
+
+{
+  "price": 12500
+}
+
+###
+
+DELETE http://localhost:3333/products/4 HTTP/1.1
