@@ -27,3 +27,38 @@ content-type: application/json
 ###
 
 DELETE http://localhost:3333/products/4 HTTP/1.1
+
+###
+
+GET http://localhost:3333/transactions HTTP/1.1
+
+###
+
+GET http://localhost:3333/transactions/3 HTTP/1.1
+
+###
+
+POST http://localhost:3333/transactions HTTP/1.1
+content-type: application/json
+
+{
+  "cashierName": "Bambank",
+  "total": 12000,
+  "bayar": 12000
+}
+
+###
+
+PUT http://localhost:3333/transactions/3 HTTP/1.1
+content-type: application/json
+
+{
+  "total": 2000,
+  "bayar": 2000
+}
+
+###
+
+DELETE http://localhost:3333/transactions/1 HTTP/1.1
+
+###

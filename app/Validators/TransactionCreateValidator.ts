@@ -8,7 +8,6 @@ export default class TransactionCreateValidator {
     cashierName: schema.string({}, [rules.required(), rules.maxLength(100)]),
     total: schema.number([rules.required(), rules.unsigned()]),
     bayar: schema.number([rules.required(), rules.unsigned()]),
-    kembali: schema.number([rules.required(), rules.unsigned()]),
   });
 
   public messages: CustomMessages = {};

@@ -14,9 +14,6 @@ export default class Transaction extends BaseModel {
   @column()
   public bayar: number;
 
-  @column()
-  public kembali: number;
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;
 

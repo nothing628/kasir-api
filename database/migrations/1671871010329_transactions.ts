@@ -10,7 +10,6 @@ export default class extends BaseSchema {
 
       table.decimal("total", 18, 2);
       table.decimal("bayar", 18, 2);
-      table.decimal("kembali", 18, 2);
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

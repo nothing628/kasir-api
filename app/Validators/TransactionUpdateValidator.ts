@@ -7,7 +7,6 @@ export default class TransactionUpdateValidator {
   public schema = schema.create({
     total: schema.number.optional([rules.unsigned()]),
     bayar: schema.number.optional([rules.unsigned()]),
-    kembali: schema.number.optional([rules.unsigned()]),
   });
 
   public messages: CustomMessages = {};
