@@ -8,17 +8,17 @@ export default class extends BaseSeeder {
       {
         productName: "Indomie Goreng",
         productCategory: "Makanan",
-        price: 3500,
+        harga: 3500,
       },
       {
         productName: "CocaCola 1500ml",
         productCategory: "Minuman",
-        price: 15000,
+        harga: 15000,
       },
       {
         productName: "Ultramilk Coklat 2000ml",
         productCategory: "Minuman",
-        price: 20400,
+        harga: 20400,
       }
     ])
   }

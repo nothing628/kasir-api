@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments("id");
       table.string("product_name", 120).notNullable();
       table.string("product_category", 100).notNullable();
-      table.decimal("price", 18, 2);
+      table.decimal("harga", 18, 2);
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
