@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev-vite": "vite",
+    "build-vite": "vue-tsc && vite build"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
@@ -13,9 +15,12 @@
     "@japa/runner": "^2.2.2",
     "@types/proxy-addr": "^2.0.0",
     "@types/source-map-support": "^0.5.6",
+    "@vitejs/plugin-vue": "^4.0.0",
     "adonis-preset-ts": "^2.1.0",
     "pino-pretty": "^9.1.1",
     "typescript": "~4.6",
+    "vite": "^4.0.3",
+    "vue-tsc": "^1.0.16",
     "youch": "^3.2.2",
     "youch-terminal": "^2.1.5"
   },
@@ -29,6 +34,7 @@
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21",
-    "sqlite3": "^5.1.4"
+    "sqlite3": "^5.1.4",
+    "vue": "^3.2.45"
   }
 }
