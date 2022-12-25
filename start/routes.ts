@@ -22,7 +22,7 @@ import Route from "@ioc:Adonis/Core/Route";
 
 Route.resource("/products", "ProductsController");
 Route.resource("/transactions", "TransactionsController");
-Route.resource("/transaction-details", "TransactionDetailsController");
+Route.resource("/transactions/:transaction/details", "TransactionDetailsController");
 Route.get("/", async () => {
   return { hello: "world" };
 });
