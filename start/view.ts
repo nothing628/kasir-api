@@ -12,10 +12,10 @@ import Env from "@ioc:Adonis/Core/Env";
 import Application from "@ioc:Adonis/Core/Application";
 import { readFileSync } from "node:fs";
 
-const getAssetScriptTag = (assetInfo) => {
+const getAssetPath = (assetInfo) => {
   const assetPath = "/dist/" + assetInfo.file;
 
-  return `<script src="${assetPath}"></script>`;
+  return assetPath;
 };
 
 View.global("env", Env.get("NODE_ENV"));
@@ -30,10 +30,8 @@ View.global("assetBuild", function (path: string) {
     if (path in manifestJson) {
       const assetInfo = manifestJson[path];
 
-      return getAssetScriptTag(assetInfo);
+      return getAssetPath(assetInfo);
     }
-
-    return "<script></script>";
   } catch {
     //
   }

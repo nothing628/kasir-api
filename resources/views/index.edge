@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="{{ assetBuild('resources/js/main.css') }}" />
 </head>
 
 <body>
@@ -15,7 +16,7 @@
   <script type="module" src="http://localhost:5173/@vite/client"></script>
   <script type="module" src="http://localhost:5173/resources/js/main.ts"></script>
   @else
-  {{{ assetBuild('resources/js/main.ts') }}}
+  <script src="{{ assetBuild('resources/js/main.ts') }}"></script>
   @end
 </body>
 

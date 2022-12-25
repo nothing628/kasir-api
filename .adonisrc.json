@@ -23,7 +23,8 @@
     "@adonisjs/core",
     "@adonisjs/lucid",
     "@adonisjs/view",
-    "@adonisjs/auth"
+    "@adonisjs/auth",
+    "./providers/ViteProvider"
   ],
   "aceProviders": [
     "@adonisjs/repl"
