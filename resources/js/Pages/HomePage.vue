@@ -6,6 +6,9 @@
         data</h6>
     </div>
 
+    <div class="mb-4 flex justify-end">
+      <button class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah Produk</button>
+    </div>
     <TableProduct></TableProduct>
     <TablePagination></TablePagination>
   </div>
