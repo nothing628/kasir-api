@@ -7,7 +7,7 @@
     "build": "node ace build --production",
     "start": "node server.js",
     "dev-vite": "vite",
-    "build-vite": "vue-tsc && vite build"
+    "build-vite": "vite build"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
