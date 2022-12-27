@@ -8,5 +8,11 @@
           Product</button>
       </div>
     </div>
+
+    <FormProduct />
   </div>
 </template>
+
+<script setup lang="ts">
+import FormProduct from '../Components/FormProduct.vue';
+</script>
