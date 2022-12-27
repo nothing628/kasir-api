@@ -11,7 +11,7 @@
         class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah
         Produk</button>
     </div>
-    <TableProduct></TableProduct>
+    <TableProduct :items="products"></TableProduct>
     <TablePagination></TablePagination>
   </div>
 </template>
@@ -19,10 +19,17 @@
 <script setup lang="ts">
 import TableProduct from '../Components/TableProduct.vue';
 import TablePagination from '../Components/TablePagination.vue';
+import { useProductList } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
 
 const router = useRouter();
 const goToCreateProductPage = () => {
   router.push({ name: 'product.new' })
 }
+
+const productList = useProductList();
+const { products } = productList
+
+onMounted(productList.loadProduct)
 </script>

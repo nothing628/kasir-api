@@ -14,6 +14,7 @@ specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   adonis-preset-ts: ^2.1.0
   autoprefixer: ^10.4.13
+  ky: ^0.33.0
   luxon: ^3.1.1
   pinia: ^2.0.28
   pino-pretty: ^9.1.1
@@ -37,6 +38,7 @@ dependencies:
   '@adonisjs/lucid': 18.3.0_7bfe4slzj72hjsrhekqe3ualhq
   '@adonisjs/repl': 3.1.11_@adonisjs+core@5.9.0
   '@adonisjs/view': 6.2.0_@adonisjs+core@5.9.0
+  ky: 0.33.0
   luxon: 3.1.1
   pinia: 2.0.28_zuhkbt3e45xhhyssve4eca4oqi
   proxy-addr: 2.0.7
@@ -3512,6 +3514,11 @@ packages:
       tildify: 2.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /ky/0.33.0:
+    resolution: {integrity: sha512-peKzuOlN/q3Q3jOgi4t0cp6DOgif5rVnmiSIsjsmkiOcdnSjkrKSUqQmRWYCTqjUtR9b3xQQr8aj7KwSW1r49A==}
+    engines: {node: '>=14.16'}
     dev: false
 
   /leven/3.1.0:

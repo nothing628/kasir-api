@@ -5,12 +5,12 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: import("./Pages/HomePage.vue"),
+      component: () => import("./Pages/HomePage.vue"),
     },
     {
       path: "/product/new",
       name: "product.new",
-      component: import("./Pages/CreateProductPage.vue"),
+      component: () => import("./Pages/CreateProductPage.vue"),
     },
   ],
 });
