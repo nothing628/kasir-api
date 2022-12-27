@@ -11,16 +11,19 @@
       </div>
     </div>
 
-    <FormProduct />
+    <FormProduct v-model="formData" />
   </div>
 </template>
 
 <script setup lang="ts">
 import FormProduct from '../Components/FormProduct.vue';
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 const router = useRouter();
 const backToProductList = () => {
   router.back();
 }
+
+const formData = ref({})
 </script>
