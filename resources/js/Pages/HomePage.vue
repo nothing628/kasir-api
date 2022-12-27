@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-screen-xl mt-12 mb-7 mx-auto">
     <div class="mb-12">
-      <h1 class="text-[#253D4E] text-5xl font-bold mb-[10px]">Products</h1>
+      <h1 class="text-[#253D4E] text-5xl font-bold mb-[10px]">Master Data Produk</h1>
       <h6 class="text-[#7E7E7E] text-base font-bold">Ada total <span class="text-[#3BB77E]">5</span> produk di master
         data</h6>
     </div>
