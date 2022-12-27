@@ -7,7 +7,9 @@
     </div>
 
     <div class="mb-4 flex justify-end">
-      <button class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah Produk</button>
+      <button @click="goToCreateProductPage"
+        class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah
+        Produk</button>
     </div>
     <TableProduct></TableProduct>
     <TablePagination></TablePagination>
@@ -17,4 +19,10 @@
 <script setup lang="ts">
 import TableProduct from '../Components/TableProduct.vue';
 import TablePagination from '../Components/TablePagination.vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+const goToCreateProductPage = () => {
+  router.push({ name: 'product.new' })
+}
 </script>

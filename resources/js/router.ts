@@ -7,6 +7,11 @@ const router = createRouter({
       path: "/",
       component: import("./Pages/HomePage.vue"),
     },
+    {
+      path: "/product/new",
+      name: "product.new",
+      component: import("./Pages/CreateProductPage.vue"),
+    },
   ],
 });
 
