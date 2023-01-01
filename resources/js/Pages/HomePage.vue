@@ -14,7 +14,7 @@
     <TableProduct :items="products" @delete="onRowDelete"></TableProduct>
     <TablePagination></TablePagination>
 
-    <DeleteConfirmation v-model="isDeleteOpen" />
+    <DeleteConfirmation v-model="isDeleteOpen" @ok="onDeleteProduct" />
   </div>
 </template>
 
@@ -22,12 +22,13 @@
 import TableProduct from '../Components/TableProduct.vue';
 import TablePagination from '../Components/TablePagination.vue';
 import DeleteConfirmation from '../Components/DeleteConfirmation.vue';
-import { useProductList } from '../Hook/UseProduct'
+import { useProductList, deleteProduct } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 
 const router = useRouter();
 const isDeleteOpen = ref(false)
+const tmpProductId = ref<number | null>(null)
 const goToCreateProductPage = () => {
   router.push({ name: 'product.new' })
 }
@@ -35,9 +36,22 @@ const goToCreateProductPage = () => {
 const productList = useProductList();
 const { products } = productList
 
-const onRowDelete = (_: any) => {
+const refreshProduct = () => {
+  productList.loadProduct()
+  tmpProductId.value = null;
+}
+const onRowDelete = (item: any) => {
+  tmpProductId.value = item.id
   isDeleteOpen.value = true;
 }
 
-onMounted(productList.loadProduct)
+const onDeleteProduct = () => {
+  const productId = tmpProductId.value;
+
+  if (productId) {
+    deleteProduct(productId).then(refreshProduct)
+  }
+}
+
+onMounted(refreshProduct)
 </script>
