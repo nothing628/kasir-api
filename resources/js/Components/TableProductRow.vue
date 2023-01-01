@@ -12,7 +12,7 @@
       <a class="text-[#3BB77E] text-base font-bold">{{ item.product_category }}</a>
     </td>
     <td class="py-[15px] text-center">
-      <h3 class="text-[#3BB77E] text-xl">Rp{{ item.harga }}</h3>
+      <h3 class="text-[#3BB77E] text-xl">Rp{{ item.harga.toLocaleString() }}</h3>
     </td>
     <td class="py-[15px] text-center">
       <button @click="updateClick"
