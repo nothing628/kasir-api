@@ -15,6 +15,7 @@ const router = createRouter({
     {
       path: "/product/:id",
       name: "product.edit",
+      props: true,
       component: () => import("./Pages/UpdateProductPage.vue"),
     }
   ],
