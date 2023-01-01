@@ -18,10 +18,10 @@
 
 <script setup lang="ts">
 import FormProduct from '../Components/FormProduct.vue';
-import { getProduct } from '../Hook/UseProduct'
+import { getProduct, updateProduct } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-// import get from 'lodash/get'
+import get from 'lodash/get'
 
 const props = defineProps<{
   id: number
@@ -33,12 +33,12 @@ const backToProductList = () => {
   router.back();
 }
 const submitFormData = async () => {
-  // const form = formData.value;
-  // await storeProduct({
-  //   harga: get(form, 'price'),
-  //   productName: get(form, 'productName'),
-  //   productCategory: get(form, 'productCategory'),
-  // })
+  const form = formData.value;
+  await updateProduct(props.id, {
+    harga: get(form, 'price'),
+    productName: get(form, 'productName'),
+    productCategory: get(form, 'productCategory'),
+  })
 
   backToProductList()
 }

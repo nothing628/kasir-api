@@ -7,11 +7,31 @@ type ProductFormData = {
   harga: number;
 };
 
+type ProductCreateFormData = ProductFormData;
+type ProductUpdateFormData = ProductFormData;
+
 export const deleteProduct = async (id: number) => {
   try {
     await ky.delete(`/products/${id}`).json();
   } catch {
     throw new Error("Tidak dapat menghapus produk");
+  }
+};
+
+export const updateProduct = async (
+  id: number,
+  data: ProductUpdateFormData
+) => {
+  try {
+    const product = await ky
+      .put(`/products/${id}`, {
+        json: data,
+      })
+      .json();
+
+    return product;
+  } catch {
+    throw new Error("Produk tidak ditemukan");
   }
 };
 
@@ -25,7 +45,7 @@ export const getProduct = async (id: number) => {
   }
 };
 
-export const storeProduct = async (data: ProductFormData) => {
+export const storeProduct = async (data: ProductCreateFormData) => {
   const response = await ky
     .post("/products", {
       json: data,
