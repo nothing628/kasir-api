@@ -58,6 +58,8 @@ watch(formData, () => {
 })
 
 watch(modelValue, (newval) => {
-  console.log(newval)
+  formData.productName = newval.productName
+  formData.productCategory = newval.productCategory
+  formData.price = newval.price
 })
 </script>

@@ -9,16 +9,28 @@ type ProductFormData = {
 
 export const deleteProduct = async (id: number) => {
   try {
-    await ky.delete(`/products/${id}`).json()
+    await ky.delete(`/products/${id}`).json();
   } catch {
-    throw new Error("Tidak dapat menghapus produk")
+    throw new Error("Tidak dapat menghapus produk");
   }
-}
+};
+
+export const getProduct = async (id: number) => {
+  try {
+    const product = await ky.get(`/products/${id}`).json();
+
+    return product;
+  } catch {
+    throw new Error("Produk tidak ditemukan");
+  }
+};
 
 export const storeProduct = async (data: ProductFormData) => {
-  const response = await ky.post("/products", {
-    json: data,
-  }).json();
+  const response = await ky
+    .post("/products", {
+      json: data,
+    })
+    .json();
 
   return response;
 };

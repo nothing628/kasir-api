@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import FormProduct from '../Components/FormProduct.vue';
-// import { storeProduct } from '../Hook/UseProduct'
+import { getProduct } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
 // import get from 'lodash/get'
@@ -43,7 +43,17 @@ const submitFormData = async () => {
   backToProductList()
 }
 
+const getProductInfo = async (id: number) => {
+  const product: any = await getProduct(id)
+
+  formData.value = {
+    productName: product.product_name,
+    productCategory: product.product_category,
+    price: product.harga
+  }
+}
+
 onMounted(() => {
-  console.log(props)
+  getProductInfo(props.id)
 })
 </script>
