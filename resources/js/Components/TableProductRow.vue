@@ -15,16 +15,28 @@
       <h3 class="text-[#3BB77E] text-xl">Rp{{ item.harga }}</h3>
     </td>
     <td class="py-[15px] text-center">
-      <button
+      <button @click="updateClick"
         class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040] mr-2">Edit</button>
-      <button
+      <button @click="deleteClick"
         class="py-2 px-[18px] bg-[#f74b81] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Hapus</button>
     </td>
   </tr>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   item: any
 }>()
+
+const emit = defineEmits<{
+  (e: 'delete', item: any): void
+  (e: 'update', item: any): void
+}>()
+
+const deleteClick = () => {
+  emit('delete', props.item)
+}
+const updateClick = () => {
+  emit('update', props.item)
+}
 </script>

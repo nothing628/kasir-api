@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <TableProductRow v-for="item in items" :key="(item as any).id" :item="item"/>
+        <TableProductRow v-for="item in items" :key="(item as any).id" :item="item" @delete="onRowDelete" />
       </tbody>
     </table>
   </div>
@@ -26,4 +26,13 @@ defineProps({
     type: Array<unknown>
   }
 })
+
+const emit = defineEmits<{
+  (e: 'delete', item: any): void
+  (e: 'update', item: any): void
+}>()
+
+const onRowDelete = (item: any) => {
+  emit('delete', item)
+}
 </script>

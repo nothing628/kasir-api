@@ -11,25 +11,33 @@
         class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah
         Produk</button>
     </div>
-    <TableProduct :items="products"></TableProduct>
+    <TableProduct :items="products" @delete="onRowDelete"></TableProduct>
     <TablePagination></TablePagination>
+
+    <DeleteConfirmation v-model="isDeleteOpen" />
   </div>
 </template>
 
 <script setup lang="ts">
 import TableProduct from '../Components/TableProduct.vue';
 import TablePagination from '../Components/TablePagination.vue';
+import DeleteConfirmation from '../Components/DeleteConfirmation.vue';
 import { useProductList } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const router = useRouter();
+const isDeleteOpen = ref(false)
 const goToCreateProductPage = () => {
   router.push({ name: 'product.new' })
 }
 
 const productList = useProductList();
 const { products } = productList
+
+const onRowDelete = (_: any) => {
+  isDeleteOpen.value = true;
+}
 
 onMounted(productList.loadProduct)
 </script>
