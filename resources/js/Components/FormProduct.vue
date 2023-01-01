@@ -8,21 +8,21 @@
       <form>
         <div class="mb-6">
           <label class="text-[13px] mb-1">Nama Produk</label>
-          <input v-model="productName"
+          <input :value="productName" @change="(e: any) => emits('update:productName', e.target.value)"
             class="text-[#4f5d77] text-[13px] w-full rounded-[4px] h-[45px] border-[2px] border-[#f4f5f9] bg-[#f4f5f9] pl-5 py-2 pr-3 outline-0 hover:bg-transparent"
             placeholder="Tulis nama produk disini" type="text" />
         </div>
 
         <div class="mb-6">
           <label class="text-[13px] mb-1">Kategori Produk</label>
-          <input v-model="productCategory"
+          <input :value="productCategory" @change="(e: any) => emits('update:productCategory', e.target.value)"
             class="text-[#4f5d77] text-[13px] w-full rounded-[4px] h-[45px] border-[2px] border-[#f4f5f9] bg-[#f4f5f9] pl-5 py-2 pr-3 outline-0 hover:bg-transparent"
             placeholder="Tulis kategori produk disini" type="text" />
         </div>
 
         <div class="mb-6">
           <label class="text-[13px] mb-1">Harga</label>
-          <input v-model="price"
+          <input :value="price" @change="(e: any) => emits('update:price', e.target.value)"
             class="text-[#4f5d77] text-[13px] w-full rounded-[4px] h-[45px] border-[2px] border-[#f4f5f9] bg-[#f4f5f9] pl-5 py-2 pr-3 outline-0 hover:bg-transparent"
             placeholder="Rp" type="number" />
         </div>
@@ -32,34 +32,15 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRefs, unref, watch } from 'vue'
-
-const props = defineProps<{
-  modelValue: any
+defineProps<{
+  productName: string,
+  productCategory: string,
+  price: string,
 }>()
+
 const emits = defineEmits<{
-  (e: 'update:modelValue', newValue: any): void;
+  (e: 'update:productName', newValue: any): void;
+  (e: 'update:productCategory', newValue: any): void;
+  (e: 'update:price', newValue: any): void;
 }>()
-
-const formData = reactive({
-  productName: '',
-  productCategory: '',
-  price: ''
-})
-const { productName, price, productCategory } = toRefs(formData)
-const { modelValue } = toRefs(props)
-
-watch(formData, () => {
-  emits('update:modelValue', {
-    productName: unref(productName),
-    productCategory: unref(productCategory),
-    price: unref(price),
-  })
-})
-
-watch(modelValue, (newval) => {
-  formData.productName = newval.productName
-  formData.productCategory = newval.productCategory
-  formData.price = newval.price
-})
 </script>

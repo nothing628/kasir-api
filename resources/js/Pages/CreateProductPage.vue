@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <FormProduct v-model="formData" />
+    <FormProduct v-model:product-name="productName" v-model:product-category="productCategory" v-model:price="price" />
   </div>
 </template>
 
@@ -21,19 +21,19 @@ import FormProduct from '../Components/FormProduct.vue';
 import { storeProduct } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-import get from 'lodash/get'
 
-const formData = ref<unknown>({})
+const productName = ref('')
+const productCategory = ref('')
+const price = ref('')
 const router = useRouter();
 const backToProductList = () => {
   router.back();
 }
 const submitFormData = async () => {
-  const form = formData.value;
   await storeProduct({
-    harga: get(form, 'price'),
-    productName: get(form, 'productName'),
-    productCategory: get(form, 'productCategory'),
+    harga: parseFloat(price.value),
+    productName: productName.value,
+    productCategory: productCategory.value,
   })
 
   backToProductList()

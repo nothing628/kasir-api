@@ -10,7 +10,7 @@ type ProductFormData = {
 type ProductCreateFormData = ProductFormData;
 type ProductUpdateFormData = ProductFormData;
 
-export const deleteProduct = async (id: number) => {
+export const deleteProduct = async (id: number | string) => {
   try {
     await ky.delete(`/products/${id}`).json();
   } catch {
@@ -19,7 +19,7 @@ export const deleteProduct = async (id: number) => {
 };
 
 export const updateProduct = async (
-  id: number,
+  id: number | string,
   data: ProductUpdateFormData
 ) => {
   try {
@@ -35,7 +35,7 @@ export const updateProduct = async (
   }
 };
 
-export const getProduct = async (id: number) => {
+export const getProduct = async (id: number | string) => {
   try {
     const product = await ky.get(`/products/${id}`).json();
 

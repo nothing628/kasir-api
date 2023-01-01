@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <FormProduct v-model="formData" />
+    <FormProduct v-model:product-name="productName" v-model:product-category="productCategory" v-model:price="price" />
   </div>
 </template>
 
@@ -21,36 +21,34 @@ import FormProduct from '../Components/FormProduct.vue';
 import { getProduct, updateProduct } from '../Hook/UseProduct'
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import get from 'lodash/get'
 
 const props = defineProps<{
-  id: number
+  id: string
 }>()
 
-const formData = ref<unknown>({})
+const productName = ref('')
+const productCategory = ref('')
+const price = ref('')
 const router = useRouter();
 const backToProductList = () => {
   router.back();
 }
 const submitFormData = async () => {
-  const form = formData.value;
   await updateProduct(props.id, {
-    harga: get(form, 'price'),
-    productName: get(form, 'productName'),
-    productCategory: get(form, 'productCategory'),
+    harga: parseFloat(price.value),
+    productName: productName.value,
+    productCategory: productCategory.value,
   })
 
   backToProductList()
 }
 
-const getProductInfo = async (id: number) => {
+const getProductInfo = async (id: string) => {
   const product: any = await getProduct(id)
 
-  formData.value = {
-    productName: product.product_name,
-    productCategory: product.product_category,
-    price: product.harga
-  }
+  productName.value = product.product_name
+  productCategory.value = product.product_category
+  price.value = String(product.harga)
 }
 
 onMounted(() => {
