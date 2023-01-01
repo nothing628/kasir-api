@@ -7,20 +7,26 @@ type ProductFormData = {
   harga: number;
 };
 
+export const deleteProduct = async (id: number) => {
+  try {
+    await ky.delete(`/products/${id}`).json()
+  } catch {
+    throw new Error("Tidak dapat menghapus produk")
+  }
+}
+
 export const storeProduct = async (data: ProductFormData) => {
   const response = await ky.post("/products", {
     json: data,
-  });
-  const responseJson = await response.json();
+  }).json();
 
-  return responseJson;
+  return response;
 };
 
 export const useProductList = () => {
   const products = ref<any[]>([]);
   const loadProduct = async () => {
-    const productResponse = await ky.get("/products");
-    const productJson = await productResponse.json();
+    const productJson = await ky.get("/products").json();
 
     products.value = productJson as unknown[];
   };
