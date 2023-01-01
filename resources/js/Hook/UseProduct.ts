@@ -4,7 +4,7 @@ import { ref } from "vue";
 type ProductFormData = {
   productName: string;
   productCategory: string;
-  price: number;
+  harga: number;
 };
 
 export const storeProduct = async (data: ProductFormData) => {

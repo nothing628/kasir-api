@@ -15,7 +15,7 @@ export default class ProductCreateValidator {
       rules.trim(),
       rules.maxLength(100),
     ]),
-    price: schema.number([
+    harga: schema.number([
       rules.required(),
       rules.unsigned(),
     ])

@@ -9,12 +9,14 @@ specifiers:
   '@adonisjs/view': ^6.2.0
   '@japa/preset-adonis': ^1.2.0
   '@japa/runner': ^2.2.2
+  '@types/lodash': ^4.14.191
   '@types/proxy-addr': ^2.0.0
   '@types/source-map-support': ^0.5.6
   '@vitejs/plugin-vue': ^4.0.0
   adonis-preset-ts: ^2.1.0
   autoprefixer: ^10.4.13
   ky: ^0.33.0
+  lodash: ^4.17.21
   luxon: ^3.1.1
   pinia: ^2.0.28
   pino-pretty: ^9.1.1
@@ -39,6 +41,7 @@ dependencies:
   '@adonisjs/repl': 3.1.11_@adonisjs+core@5.9.0
   '@adonisjs/view': 6.2.0_@adonisjs+core@5.9.0
   ky: 0.33.0
+  lodash: 4.17.21
   luxon: 3.1.1
   pinia: 2.0.28_zuhkbt3e45xhhyssve4eca4oqi
   proxy-addr: 2.0.7
@@ -52,6 +55,7 @@ devDependencies:
   '@adonisjs/assembler': 5.9.5_@adonisjs+core@5.9.0
   '@japa/preset-adonis': 1.2.0_jdq4mnbsu6fps6nhexbcvjhv3y
   '@japa/runner': 2.2.2
+  '@types/lodash': 4.14.191
   '@types/proxy-addr': 2.0.0
   '@types/source-map-support': 0.5.6
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.45
@@ -1092,6 +1096,10 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/luxon/3.1.0:

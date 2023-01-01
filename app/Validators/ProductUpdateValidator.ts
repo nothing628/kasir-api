@@ -13,7 +13,7 @@ export default class ProductUpdateValidator {
       rules.trim(),
       rules.maxLength(100),
     ]),
-    price: schema.number.optional([
+    harga: schema.number.optional([
       rules.unsigned(),
     ])
   })
