@@ -11,7 +11,7 @@
         class="py-2 px-[18px] bg-[#3BB77E] text-white text-sm rounded-[4px] transition-all hover:bg-[#FDC040]">Tambah
         Produk</button>
     </div>
-    <TableProduct :items="products" @delete="onRowDelete"></TableProduct>
+    <TableProduct :items="products" @delete="onRowDelete" @update="onRowEdit"></TableProduct>
     <TablePagination></TablePagination>
 
     <DeleteConfirmation v-model="isDeleteOpen" @ok="onDeleteProduct" />
@@ -43,6 +43,15 @@ const refreshProduct = () => {
 const onRowDelete = (item: any) => {
   tmpProductId.value = item.id
   isDeleteOpen.value = true;
+}
+const onRowEdit = (item: any) => {
+  const productId = item.id;
+  router.push({
+    name: 'product.edit',
+    params: {
+      id: productId
+    }
+  })
 }
 
 const onDeleteProduct = () => {

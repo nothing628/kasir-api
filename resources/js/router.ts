@@ -12,6 +12,11 @@ const router = createRouter({
       name: "product.new",
       component: () => import("./Pages/CreateProductPage.vue"),
     },
+    {
+      path: "/product/:id",
+      name: "product.edit",
+      component: () => import("./Pages/UpdateProductPage.vue"),
+    }
   ],
 });
 
