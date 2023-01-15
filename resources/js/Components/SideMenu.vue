@@ -11,33 +11,17 @@
 
     <nav>
       <ul class="list-none m-4 p-0">
-        <li class="mb-[5px] p-0 align-baseline">
-          <a class="relative flex items-center p-[10px] font-extrabold text-[13px] text-[#292f46] hover:bg-[#e9ecef] rounded" href="/">
-            <i class="text-[#adb5bd] mr-[10px] text-2xl ri-home-4-line"></i>
-            <span class="">Dashboard</span>
-          </a>
-        </li>
-        <li class="mb-[5px] p-0 align-baseline">
-          <a class="relative flex items-center p-[10px] font-extrabold text-[13px] text-[#292f46] bg-[rgba(59,183,126,0.2)] hover:bg-[#e9ecef] rounded" href="/">
-            <i class="text-[#adb5bd] mr-[10px] text-2xl ri-shopping-bag-3-line"></i>
-            <span class="">Products</span>
-          </a>
-        </li>
-        <li class="mb-[5px] p-0 align-baseline">
-          <a class="relative flex items-center p-[10px] font-extrabold text-[13px] text-[#292f46] hover:bg-[#e9ecef] rounded" href="/">
-            <i class="text-[#adb5bd] mr-[10px] text-2xl ri-shopping-cart-2-line"></i>
-            <span class="">Orders</span>
-          </a>
-        </li>
-        <li class="mb-[5px] p-0 align-baseline">
-          <a class="relative flex items-center p-[10px] font-extrabold text-[13px] text-[#292f46] hover:bg-[#e9ecef] rounded" href="/">
-            <i class="text-[#adb5bd] mr-[10px] text-2xl ri-money-dollar-circle-line"></i>
-            <span class="">Transactions</span>
-          </a>
-        </li>
+        <SideMenuItem href="/" icon="ri-home-4-line">Dashboard</SideMenuItem>
+        <SideMenuItem href="/products" active icon="ri-shopping-bag-3-line">Products</SideMenuItem>
+        <SideMenuItem href="/orders" icon="ri-shopping-cart-2-line">Orders</SideMenuItem>
+        <SideMenuItem href="/transactions" icon="ri-money-dollar-circle-line">Transactions</SideMenuItem>
       </ul>
       <br>
       <br>
     </nav>
   </aside>
 </template>
+
+<script setup lang="ts">
+import SideMenuItem from './SideMenuItem.vue'
+</script>
